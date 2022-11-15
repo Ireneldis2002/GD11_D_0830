@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         queue = Volley.newRequestQueue(this)
         layoutLoading = findViewById(R.id.layout_loading)
-        srMahasiswa = findViewById(R.id.sr_mahasiswa)
+        srMahasiswa = findViewById(R.id.sr_mahasiwa)
         svMahasiswa = findViewById(R.id.sv_mahasiswa)
 
         srMahasiswa?.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener { allMahasiswa() })
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(i, LAUNCH_ADD_ACTIVITY)
         }
 
-        val rvProduk = findViewById<RecyclerView>(R.id.rv_mahasiswa)
+        val rvProduk = findViewById<RecyclerView>(R.id.rv_mahasiwa)
         adapter = MahasiswaAdapter(ArrayList(), this)
         rvProduk.layoutManager = LinearLayoutManager(this)
         rvProduk.adapter = adapter

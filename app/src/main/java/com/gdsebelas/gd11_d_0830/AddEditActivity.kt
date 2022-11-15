@@ -32,8 +32,8 @@ class AddEditActivity : AppCompatActivity() {
 
     private var etNama: EditText? = null
     private var etNPM: EditText? = null
-    private var etFakultas: AutoCompleteTextView? = null
-    private  var etProdi:AutoCompleteTextView? = null
+    private var edFakultas: AutoCompleteTextView? = null
+    private  var edProdi:AutoCompleteTextView? = null
     private var layoutLoading: LinearLayout? = null
     private var queue: RequestQueue? = null
 
@@ -45,8 +45,8 @@ class AddEditActivity : AppCompatActivity() {
         queue = Volley.newRequestQueue(this)
         etNama = findViewById(R.id.et_nama)
         etNPM = findViewById(R.id.et_npm)
-        etFakultas = findViewById(R.id.et_fakultas)
-        etProdi = findViewById(R.id.et_prodi)
+        edFakultas = findViewById(R.id.ed_fakultas)
+        edProdi = findViewById(R.id.ed_prodi)
         layoutLoading = findViewById(R.id.layout_loading)
 
         setExposedDropDownMenu()
@@ -69,11 +69,11 @@ class AddEditActivity : AppCompatActivity() {
     fun setExposedDropDownMenu() {
         val adapterFakultas: ArrayAdapter<String> = ArrayAdapter<String>(this,
             R.layout.item_list, FAKULTAS_LIST)
-        etFakultas!!.setAdapter(adapterFakultas)
+        edFakultas!!.setAdapter(adapterFakultas)
 
         val adapterProdi: ArrayAdapter<String> = ArrayAdapter<String>(this,
             R.layout.item_list, PRODI_LIST)
-        etProdi!!.setAdapter(adapterProdi)
+        edProdi!!.setAdapter(adapterProdi)
     }
 
     private fun getMahasiswaById(id: Long) {
@@ -86,8 +86,8 @@ class AddEditActivity : AppCompatActivity() {
 
                 etNama!!.setText(mahasiswa.nama)
                 etNPM!!.setText(mahasiswa.npm)
-                etFakultas!!.setText(mahasiswa.fakultas)
-                etProdi!!.setText(mahasiswa.prodi)
+                edFakultas!!.setText(mahasiswa.fakultas)
+                edProdi!!.setText(mahasiswa.prodi)
                 setExposedDropDownMenu()
 
                 Toast.makeText(this@AddEditActivity, "Data berhasil diambil!", Toast.LENGTH_SHORT).show()
@@ -123,8 +123,8 @@ class AddEditActivity : AppCompatActivity() {
         val mahasiswa = Mahasiswa(
             etNama!!.text.toString(),
             etNPM!!.text.toString(),
-            etFakultas!!.text.toString(),
-            etProdi!!.text.toString()
+            edFakultas!!.text.toString(),
+            edProdi!!.text.toString()
         )
         val stringRequest: StringRequest =
             object : StringRequest(Method.POST, MahasiswaApi.ADD_URL, Response.Listener { response ->
@@ -183,8 +183,8 @@ class AddEditActivity : AppCompatActivity() {
         val mahasiswa = Mahasiswa(
             etNama!!.text.toString(),
             etNPM!!.text.toString(),
-            etFakultas!!.text.toString(),
-            etProdi!!.text.toString()
+            edFakultas!!.text.toString(),
+            edProdi!!.text.toString()
         )
 
         val stringRequest: StringRequest = object :
