@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".AddEditActivity">
+    tools:context=".AddEditActivity"
+    tools:ignore="MissingClass">
 
     <ScrollView
         android:id="@+id/scroll_view"
